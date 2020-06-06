@@ -1,13 +1,13 @@
 # NOTE: update this with your service name
 service: scratch-notes-app-api
 
-# Create an optimized package for our functions. 
-# By default, Serverless Framework creates one large package for all 
-# the Lambda functions in your app. Large Lambda function packages can 
-# cause longer cold starts. By setting individually: true, we are telling 
-# Serverless Framework to create a single package per Lambda function. 
-# This in combination with serverless-bundle (and Webpack) will generate 
-# optimized packages. Note that, this’ll slow down our builds but the performance 
+# Create an optimized package for our functions.
+# By default, Serverless Framework creates one large package for all
+# the Lambda functions in your app. Large Lambda function packages can
+# cause longer cold starts. By setting individually: true, we are telling
+# Serverless Framework to create a single package per Lambda function.
+# This in combination with serverless-bundle (and Webpack) will generate
+# optimized packages. Note that, this’ll slow down our builds but the performance
 # benefit is well worth it.
 package:
   individually: true
@@ -42,7 +42,7 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
-      Resource: "arn:aws:dynamodb:us-east-1:*:*"
+      Resource: 'arn:aws:dynamodb:us-east-1:*:*'
 
 functions:
   # Defines an HTTP API endpoint that calls the main function in create.js
@@ -57,5 +57,16 @@ functions:
       - http:
           path: notes
           method: post
+          cors: true
+          authorizer: aws_iam
+  get:
+    # Defines an HTTP API endpoint that calls the main function in get.js
+    # - path: url path is /notes/{id}
+    # - method: GET request
+    handler: get.main
+    events:
+      - http:
+          path: notes/{id}
+          method: get
           cors: true
           authorizer: aws_iam
