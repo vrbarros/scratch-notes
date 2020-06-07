@@ -1,4 +1,5 @@
 export default {
+  MAX_ATTACHMENT_SIZE: 5000000,
   s3: {
     REGION: 'us-east-1',
     BUCKET: 'scratch-notes-app-uploads-bvj78apyot',
