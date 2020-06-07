@@ -21,12 +21,12 @@ Resources:
         - ADMIN_NO_SRP_AUTH
       GenerateSecret: false
 
-  # Print out the Id of the User Pool that is created
-  Outputs:
-    UserPoolId:
-      Value:
-        Ref: CognitoUserPool
+# Print out the Id of the User Pool that is created
+Outputs:
+  UserPoolId:
+    Value:
+      Ref: CognitoUserPool
 
-    UserPoolClientId:
-      Value:
-        Ref: CognitoUserPoolClient
+  UserPoolClientId:
+    Value:
+      Ref: CognitoUserPoolClient
