@@ -1,5 +1,7 @@
 export default {
   MAX_ATTACHMENT_SIZE: 5000000,
+  STRIPE_KEY:
+    'pk_test_51GrAGyFL5hNY6RikOUVwLoG8Jc1GX78WD6MeXqwwdjP4q3lzkj7qKv15OOVsajGmARqS6tXW8otED4aULx8hv7C00015bvROUK',
   s3: {
     REGION: 'us-east-1',
     BUCKET: 'scratch-notes-app-uploads-bvj78apyot',
