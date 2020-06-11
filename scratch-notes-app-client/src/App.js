@@ -6,6 +6,7 @@ import React, { useState, useEffect } from 'react';
 
 import { AppContext } from './libs/contextLib';
 import { onError } from './libs/errorLib';
+import ErrorBoundary from './components/ErrorBoundary';
 import Routes from './Routes';
 
 import './App.css';
@@ -73,9 +74,13 @@ function App() {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-        <AppContext.Provider value={{ isAuthenticated, userHasAuthenticated }}>
-          <Routes />
-        </AppContext.Provider>
+        <ErrorBoundary>
+          <AppContext.Provider
+            value={{ isAuthenticated, userHasAuthenticated }}
+          >
+            <Routes />
+          </AppContext.Provider>
+        </ErrorBoundary>
       </div>
     )
   );
